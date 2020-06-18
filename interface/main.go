@@ -37,7 +37,6 @@ func main() {
 	}
 	//Type assertion
 	fmt.Println(float64(3) / 2)
-
 	a := time.Now()
 	b := a.Add(time.Second * 10)
 	fmt.Println(a.Unix(), b.Unix())
