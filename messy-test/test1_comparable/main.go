@@ -49,4 +49,9 @@ func main() {
 		fmt.Println(m == nil) //这个是可以的
 		fmt.Println(m == n)  //Invalid operation: m == n (operator == is not defined on map[string]int)
 	*/
+	var a = [2]int{1, 2}
+	var b = [2]int{1, 2}
+	//var c = [3]int{1, 2}
+	fmt.Println(a == b) //true
+	//fmt.Println(a == c) //Invalid operation: a == c (mismatched types [2]int and [3]int)
 }

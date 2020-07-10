@@ -27,7 +27,6 @@ func main() {
 	}
 	//读写etcd的键值对
 	kv = clientv3.NewKV(client)
-
 	if getResp, err = kv.Get(context.TODO(), "test"); err != nil {
 		fmt.Println(err)
 	} else {
