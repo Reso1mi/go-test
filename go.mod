@@ -36,5 +36,7 @@ require (
 	go.uber.org/zap v1.15.0 // indirect
 	golang.org/x/crypto v0.0.0-20200604202706-70a84ac30bf9 // indirect
 	golang.org/x/time v0.0.0-20200416051211-89c76fbcd5d1 // indirect
+	gorm.io/driver/mysql v0.3.1
+	gorm.io/gorm v0.2.25
 	sigs.k8s.io/yaml v1.2.0 // indirect
 )

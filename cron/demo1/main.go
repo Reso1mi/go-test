@@ -17,7 +17,7 @@ func main() {
 		fmt.Println(err)
 	}
 
-	//每隔5分钟执行一次,支持的粒度比linux更精细
+	//每隔5秒钟执行一次,支持的粒度比linux更精细
 	if expr, err = cronexpr.Parse("*/5 * * * * * *"); err != nil {
 		fmt.Println(err)
 	}
