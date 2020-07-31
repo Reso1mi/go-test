@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unsafe"
+)
 
 func main() {
 	//匿名结构体
@@ -49,9 +52,34 @@ func main() {
 		fmt.Println(m == nil) //这个是可以的
 		fmt.Println(m == n)  //Invalid operation: m == n (operator == is not defined on map[string]int)
 	*/
+	snn1 := struct {
+		aa []int
+	}{}
+	snn2 := struct {
+		aa []int
+	}{}
+	//fmt.Println(snn1 == snn2) Invalid
+	fmt.Println(&snn1 == &snn2)
+	var aaa []int
+	fmt.Println(unsafe.Pointer(&aaa))
+	aaa = append(aaa, 1, 1, 2, 2, 2, 2, 22, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2)
+	fmt.Println(unsafe.Pointer(&aaa))
 	var a = [2]int{1, 2}
 	var b = [2]int{1, 2}
 	//var c = [3]int{1, 2}
 	fmt.Println(a == b) //true
 	//fmt.Println(a == c) //Invalid operation: a == c (mismatched types [2]int and [3]int)
+	var intC = make(chan *int)
+	var c = 1
+	fmt.Println("c addr", &c)
+	go test(&c, intC)
+	select {
+	case temp := <-intC:
+		fmt.Println("test", temp == &c)
+	}
+}
+
+func test(c *int, intC chan *int) {
+	fmt.Println("c addr", c)
+	intC <- c
 }

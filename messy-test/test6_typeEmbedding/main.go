@@ -58,5 +58,7 @@ func main() {
 	//如果内部类型实现了某个接口，那么外部类型也被认为实现了这个接口
 	sayGoodBye(ad.user)
 	sayGoodBye(ad)
-
+	var us *user = &user{}
+	us.name = "dasd"
+	fmt.Println(us)
 }
