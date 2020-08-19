@@ -89,5 +89,6 @@ func foo5() {
 		go func() {
 			fmt.Printf("foo5 val = %v\n", val)
 		}()
+		//time.Sleep(time.Second) sleep后就是正常的了，所以实际上是因为循环太快了
 	}
 }

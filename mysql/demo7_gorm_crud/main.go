@@ -56,7 +56,9 @@ func main() {
 	fmt.Println("---------------")
 	AddManyUser(MysqlDB)
 	fmt.Println("---------------")
-	AddManyUser2(MysqlDB)
+	//AddManyUser2(MysqlDB)
+	fmt.Println("---------------")
+	Query(MysqlDB)
 }
 
 func AddUser(DB *gorm.DB) {
@@ -122,6 +124,12 @@ func GetUser(DB *gorm.DB, id int) {
 		return
 	}
 	fmt.Printf("Get User [id = %d: %v]", id, user)
+}
+
+func Query(DB *gorm.DB) {
+	var users []User
+	DB.Where("name LIKE ?", "imlgw%").Find(&users)
+	fmt.Println(users)
 }
 
 func DeleteUser(DB *gorm.DB) {
