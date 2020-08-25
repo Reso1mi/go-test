@@ -48,8 +48,10 @@ func main() {
 	//其实还有一种情况，需要使用切片指针，就是把slice做函数参数传递，并在函数中append，函数传递本身就是值传递，传递的是slice的拷贝
 	//加上上面的结论，如果不使用指针，即使在函数中接收了append的返回值，对原本的slice也没有任何影响
 	//具体代码见 http://imlgw.top/2019/11/06/leetcode-er-cha-shu/#257-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84
-	k := append(se, 1, 2, 3, 4, 5)
-	fmt.Println(((*reflect.SliceHeader)(unsafe.Pointer(&se))).Len)
-	fmt.Println(((*reflect.SliceHeader)(unsafe.Pointer(&se))).Data)
-	fmt.Println(k)
+	var k []int
+	var pk = *(*[3]int)(unsafe.Pointer(&k))
+	fmt.Println(pk)
+	k = append(k, 1, 2, 3, 4, 5)             //[0 0 0]
+	var pk2 = *(*[3]int)(unsafe.Pointer(&k)) //[824634540128 5 6]
+	fmt.Println(pk2)
 }
