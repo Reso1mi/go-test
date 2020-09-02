@@ -54,4 +54,8 @@ func main() {
 	k = append(k, 1, 2, 3, 4, 5)             //[0 0 0]
 	var pk2 = *(*[3]int)(unsafe.Pointer(&k)) //[824634540128 5 6]
 	fmt.Println(pk2)
+
+	var temp = []int{1}
+	temp = temp[1:]
+	fmt.Println(temp)
 }

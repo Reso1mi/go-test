@@ -15,7 +15,7 @@ func main() {
 	fmt.Println(time.Now())
 	select {
 	case <-timer.C:
-		//default: 有default就直接过去了，否则就一直等，等哪一个先来
+	default: //有default就直接过去了，否则就一直等，等哪一个先来
 
 	}
 	fmt.Println(time.Now())
